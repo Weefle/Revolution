@@ -1,20 +1,52 @@
 package fr.weefle.revolution;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import fr.weefle.revolution.game.Game;
+import fr.weefle.revolution.game.GameListener;
+import fr.weefle.revolution.game.GameState;
 
-public class Revolution extends JavaPlugin {
+public class Revolution extends JavaPlugin implements Game {
+	
+	private List<Player> players = new ArrayList<>();
+	private GameState state;
 	
 	@Override
 	public void onEnable() {
-		//GameManager.start();
-		getServer().getPluginManager().registerEvents(new GameListener(), this);
-		super.onEnable();
+		setState(GameState.WAITING);
+		getServer().getPluginManager().registerEvents(new GameListener(this), this);
 	}
 	
 	@Override
 	public void onDisable() {
-
-		super.onDisable();
+		
 	}
+
+	@Override
+	public GameState getState() {
+		return this.state;
+	}
+
+	@Override
+	public void setState(GameState state) {
+		this.state = state;
+	}
+	
+	@Override
+	public boolean isState(GameState state) {
+		return this.state == state;
+	}
+
+	public List<Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<Player> players) {
+		this.players = players;
+	}
+	
+	
 
 }
