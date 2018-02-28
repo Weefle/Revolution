@@ -25,11 +25,6 @@ public class Revolution extends JavaPlugin implements Game {
 	}
 
 	@Override
-	public GameState getState() {
-		return this.state;
-	}
-
-	@Override
 	public void setState(GameState state) {
 		this.state = state;
 	}
