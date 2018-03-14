@@ -6,9 +6,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import fr.weefle.revolution.Revolution;
+import fr.weefle.revolution.npc.NpcGui;
 import fr.weefle.wazeapi.WazeAPI;
 
 public class GameManager extends BukkitRunnable {
+	
+	NpcGui npc = new NpcGui();
 	
 	private int timer = 10;
 	private Revolution main;
@@ -41,6 +44,7 @@ public class GameManager extends BukkitRunnable {
 		
 		if(timer == 0) {
 			Bukkit.broadcastMessage("§6Lancement du jeu!");
+			npc.createGUI(10, "test");
 			cancel();
 			main.setState(GameState.PLAYING);
 		}
