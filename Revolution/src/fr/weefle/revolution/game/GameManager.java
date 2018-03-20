@@ -36,7 +36,6 @@ public class GameManager extends BukkitRunnable {
 				} catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException
 						| IllegalAccessException | IllegalArgumentException | InvocationTargetException
 						| NoSuchFieldException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

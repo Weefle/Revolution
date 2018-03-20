@@ -10,6 +10,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+import org.bukkit.event.entity.EntityTargetEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -20,7 +21,6 @@ import fr.weefle.wazeapi.WazeAPI;
 public class GameListener implements Listener {
 	
 	private Revolution main;
-	
 	public GameListener(Revolution revolution) {
 		this.main = revolution;
 	}
@@ -76,9 +76,18 @@ public void playerJoin(PlayerJoinEvent e) {
 	
 	@EventHandler
 	public void onAttackDamage(EntityDamageByEntityEvent e) {
+		if(e.getEntityType().equals(EntityType.PLAYER)) {
+			e.setCancelled(true);
+		}
+	}
+	
+	@EventHandler
+	public void onTarget(EntityTargetEvent e) {
+		
 		if(!e.getEntityType().equals(EntityType.PLAYER)) {
 			e.setCancelled(true);
 		}
+		
 	}
 	
 	@EventHandler
