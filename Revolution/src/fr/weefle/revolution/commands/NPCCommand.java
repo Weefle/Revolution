@@ -17,7 +17,7 @@ public class NPCCommand implements CommandExecutor {
 		
 		Player p = (Player) sender;
 		if(sender instanceof Player) {
-			if(msg.equalsIgnoreCase("spwannpc")) {
+			if(msg.equalsIgnoreCase("spawnnpc")) {
 				npc.spawnNPC(p, NpcType.ARMOR);
 			}
 		}
