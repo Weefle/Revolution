@@ -5,4 +5,4 @@ description: The Official Revolution's Plugin
 main: fr.weefle.revolution.Revolution
 depends: [WazeAPI]
 commands:
-	spawnnpc:
+  spawnnpc:
