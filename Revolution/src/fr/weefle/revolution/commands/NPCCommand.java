@@ -9,8 +9,6 @@ import fr.weefle.revolution.npc.NpcSpawn;
 import fr.weefle.revolution.npc.NpcType;
 
 public class NPCCommand implements CommandExecutor {
-	
-	NpcSpawn npc = new NpcSpawn();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String msg, String[] args) {
@@ -18,7 +16,7 @@ public class NPCCommand implements CommandExecutor {
 		Player p = (Player) sender;
 		if(sender instanceof Player) {
 			if(msg.equalsIgnoreCase("spawnnpc")) {
-				npc.spawnNPC(p, NpcType.ARMOR);
+				NpcSpawn.spawnNPC(p, NpcType.ARMOR);
 			}
 		}
 		return true;
