@@ -15,8 +15,8 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import de.alphahelix.alphalibary.reflection.ReflectionUtil;
 import fr.weefle.revolution.Revolution;
+import fr.weefle.wazeapi.WazeAPI;
 
 public class GameListener implements Listener {
 	
@@ -77,7 +77,9 @@ public void playerJoin(PlayerJoinEvent e) {
 	@EventHandler
 	public void onAttackDamage(EntityDamageByEntityEvent e) {
 		if(e.getEntityType().equals(EntityType.PLAYER)) {
-			e.setCancelled(true);
+			if(main.isState(GameState.WAITING) || main.isState(GameState.STARTING) || main.isState(GameState.FINISH)) {
+				e.setCancelled(true);
+			}
 		}
 	}
 	
@@ -93,9 +95,10 @@ public void playerJoin(PlayerJoinEvent e) {
 	@EventHandler
 	public void onDeath(PlayerDeathEvent e) {
 		if(main.isState(GameState.PLAYING)) {
-			ReflectionUtil.getPing(e.getEntity());
-			/*PacketUtil.createPlayerInfoPacket(arg0, arg1, arg2, arg3, arg4)
-			WazeAPI.getInstance().getAutoRespawn().respawn(e.getEntity(), 20);*/
+			/*e.getEntity().sendMessage("" + ReflectionUtil.getPing(e.getEntity()));
+			PacketUtil.createPlayerInfoPacket(arg0, arg1, arg2, arg3, arg4);*/
+			WazeAPI.getInstance().getAutoRespawn().respawn(e.getEntity(), 20);
+			e.getEntity().setGameMode(GameMode.SPECTATOR);
 		}
 	}
 	

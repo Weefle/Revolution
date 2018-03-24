@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import de.alphahelix.alphalibary.fakeapi.FakeAPI;
 import fr.weefle.revolution.commands.NPCCommand;
 import fr.weefle.revolution.game.Game;
 import fr.weefle.revolution.game.GameListener;
@@ -17,8 +16,8 @@ public class Revolution extends JavaPlugin implements Game {
 	
 	@Override
 	public void onEnable() {
-		FakeAPI fake = new FakeAPI();
-		fake.enable(this);
+		/*FakeAPI fake = new FakeAPI();
+		fake.enable(this);*/
 		setState(GameState.WAITING);
 		getCommand("spawnnpc").setExecutor(new NPCCommand());
 		getServer().getPluginManager().registerEvents(new GameListener(this), this);
@@ -35,6 +34,10 @@ public class Revolution extends JavaPlugin implements Game {
 	
 	public boolean isState(GameState state) {
 		return this.state == state;
+	}
+	
+	public GameState getState() {
+		return state;
 	}
 
 	public List<Player> getPlayers() {

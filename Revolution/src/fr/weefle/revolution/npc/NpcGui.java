@@ -8,7 +8,7 @@ import org.bukkit.inventory.MerchantRecipe;
 
 public class NpcGui {
 	
-	public void createGUI(int rows, String title) {
+	public static void createGUI(int rows, String title) {
 		
 		Merchant merch = Bukkit.createMerchant(title);
 		MerchantRecipe mr = new MerchantRecipe(new ItemStack(Material.ACACIA_DOOR), 10);
