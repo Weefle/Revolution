@@ -16,7 +16,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import com.caved_in.commons.nms.ForceRespawnHandler;
-import com.caved_in.commons.nms.no_implementation.ForceRespawnHandlerNI;
+import com.caved_in.commons.nms.minecraft_1_9x.ForceRespawnHandler_19X;
 import fr.weefle.revolution.Revolution;
 
 public class GameListener implements Listener {
@@ -97,7 +97,7 @@ public void playerJoin(PlayerJoinEvent e) {
 	public void onDeath(PlayerDeathEvent e) {
 		if(main.isState(GameState.PLAYING)) {
 			//Respawn.respawn(e.getEntity());
-			ForceRespawnHandler respawn = new ForceRespawnHandlerNI();
+			ForceRespawnHandler respawn = new ForceRespawnHandler_19X();
 			respawn.forceRespawn(e.getEntity());
 			e.getEntity().setGameMode(GameMode.SPECTATOR);
 			
