@@ -15,8 +15,8 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import de.raytex.core.respawn.Respawn;
 import fr.weefle.revolution.Revolution;
-import fr.weefle.wazeapi.WazeAPI;
 
 public class GameListener implements Listener {
 	
@@ -95,7 +95,7 @@ public void playerJoin(PlayerJoinEvent e) {
 	@EventHandler
 	public void onDeath(PlayerDeathEvent e) {
 		if(main.isState(GameState.PLAYING)) {
-			WazeAPI.getInstance().getAutoRespawn().respawn(e.getEntity(), 20);
+			Respawn.respawn(e.getEntity());
 			e.getEntity().setGameMode(GameMode.SPECTATOR);
 			
 		}

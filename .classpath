@@ -4,7 +4,6 @@
 	<classpathentry kind="src" path="Revolution/src"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/spigot-latest.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/AlphaLibary (1)/AlphaLibary.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Weefle/Desktop/server/plugins/WazeAPI.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Weefle/Downloads/RaysCore.jar"/>
 	<classpathentry kind="output" path="Revolution/bin"/>
 </classpath>

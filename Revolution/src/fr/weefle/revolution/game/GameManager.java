@@ -27,6 +27,7 @@ public class GameManager extends BukkitRunnable {
 			}
 			if(timer == 10 || timer == 5 || timer == 4 || timer ==3 || timer ==2 || timer == 1) {
 					SimpleTitle.sendTitle(pl, "§4" + timer, "", 0, 1, 0);
+					//Title.sendTitle(player, title, subtitle, fadeIn, stay, fadeOut);
 			}
 		}
 		
