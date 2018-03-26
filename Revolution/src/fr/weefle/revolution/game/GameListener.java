@@ -15,7 +15,8 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import de.raytex.core.respawn.Respawn;
+import com.caved_in.commons.nms.ForceRespawnHandler;
+import com.caved_in.commons.nms.no_implementation.ForceRespawnHandlerNI;
 import fr.weefle.revolution.Revolution;
 
 public class GameListener implements Listener {
@@ -95,7 +96,9 @@ public void playerJoin(PlayerJoinEvent e) {
 	@EventHandler
 	public void onDeath(PlayerDeathEvent e) {
 		if(main.isState(GameState.PLAYING)) {
-			Respawn.respawn(e.getEntity());
+			//Respawn.respawn(e.getEntity());
+			ForceRespawnHandler respawn = new ForceRespawnHandlerNI();
+			respawn.forceRespawn(e.getEntity());
 			e.getEntity().setGameMode(GameMode.SPECTATOR);
 			
 		}

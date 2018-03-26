@@ -2,8 +2,7 @@ package fr.weefle.revolution.npc;
 
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import de.alphahelix.alphalibary.core.utilites.entity.EntityBuilder;
-import de.raytex.core.npc.RNPC;
+import com.caved_in.commons.entity.CreatureBuilder;
 
 public class NpcSpawn {
 	
@@ -11,12 +10,15 @@ public class NpcSpawn {
 	
 	public static void spawnNPC(Player p, NpcType np) {
 		String npp = np.toString();
-		EntityBuilder eb = new EntityBuilder(EntityType.VILLAGER);
+		CreatureBuilder cb = new CreatureBuilder(EntityType.VILLAGER);
+		cb.name(npp);
+		cb.spawn(p.getLocation());
+		/*EntityBuilder eb = new EntityBuilder(EntityType.VILLAGER);
 		eb.setName(npp);
 		eb.setGlowing(true);
 		eb.spawn(p.getLocation());
 		RNPC npc = new RNPC("test", p.getLocation());
-		npc.spawn();
+		npc.spawn();*/
 		
 		/*MinecraftServer serv = ((CraftServer)Bukkit.getServer()).getServer();
 		WorldServer wserv = ((CraftWorld)Bukkit.getServer().getWorlds().get(0)).getHandle();
