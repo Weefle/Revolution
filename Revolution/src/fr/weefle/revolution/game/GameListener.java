@@ -95,10 +95,9 @@ public void playerJoin(PlayerJoinEvent e) {
 	@EventHandler
 	public void onDeath(PlayerDeathEvent e) {
 		if(main.isState(GameState.PLAYING)) {
-			/*e.getEntity().sendMessage("" + ReflectionUtil.getPing(e.getEntity()));
-			PacketUtil.createPlayerInfoPacket(arg0, arg1, arg2, arg3, arg4);*/
 			WazeAPI.getInstance().getAutoRespawn().respawn(e.getEntity(), 20);
 			e.getEntity().setGameMode(GameMode.SPECTATOR);
+			
 		}
 	}
 	

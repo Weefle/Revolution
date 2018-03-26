@@ -3,6 +3,7 @@ package fr.weefle.revolution.npc;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import de.alphahelix.alphalibary.core.utilites.entity.EntityBuilder;
+import de.raytex.core.npc.RNPC;
 
 public class NpcSpawn {
 	
@@ -14,6 +15,8 @@ public class NpcSpawn {
 		eb.setName(npp);
 		eb.setGlowing(true);
 		eb.spawn(p.getLocation());
+		RNPC npc = new RNPC("test", p.getLocation());
+		npc.spawn();
 		
 		/*MinecraftServer serv = ((CraftServer)Bukkit.getServer()).getServer();
 		WorldServer wserv = ((CraftWorld)Bukkit.getServer().getWorlds().get(0)).getHandle();
