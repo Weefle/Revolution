@@ -1,8 +1,8 @@
 name: Revolution
 author: Weefle
-version: 1.3
+version: 1.3.1
 description: The Official Revolution's Plugin
 main: fr.weefle.revolution.Revolution
-depends: [Commons]
+depends: [AlphaLibary]
 commands:
   spawnnpc:
