@@ -15,8 +15,6 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import de.alphahelix.alphalibary.minigame.countdown.GameCountdown;
 import fr.weefle.revolution.Revolution;
 
 public class GameListener implements Listener {
@@ -46,9 +44,9 @@ public void playerJoin(PlayerJoinEvent e) {
 		p.setGameMode(GameMode.ADVENTURE);
 		
 		if(main.isState(GameState.WAITING) && main.getPlayers().size() >= 2) {
-			/*GameManager gm = new GameManager(main);
-			gm.runTaskTimer(main, 0, 20);*/
-			Long[] msgtime = {10L, 5L, 4L, 3L, 2L, 1L};
+			GameManager gm = new GameManager(main);
+			gm.runTaskTimer(main, 0, 20);
+			/*Long[] msgtime = {10L, 5L, 4L, 3L, 2L, 1L};
 			long time = 30;
 			GameCountdown gc = new GameCountdown("test", msgtime, time, true, true);
 			gc.start("hey");
@@ -73,7 +71,7 @@ public void playerJoin(PlayerJoinEvent e) {
 					// TODO Auto-generated method stub
 					
 				}
-			});
+			});*/
 			main.setState(GameState.STARTING);
 		}
 		
