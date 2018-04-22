@@ -8,11 +8,13 @@ import fr.weefle.revolution.commands.NPCCommand;
 import fr.weefle.revolution.game.Game;
 import fr.weefle.revolution.game.GameListener;
 import fr.weefle.revolution.game.GameState;
+import net.samagames.api.SamaGamesAPI;
 
 public class Revolution extends JavaPlugin implements Game {
 	
 	private List<Player> players = new ArrayList<>();
 	private GameState state;
+	SamaGamesAPI sama = SamaGamesAPI.get();
 	
 	@Override
 	public void onEnable() {
@@ -36,6 +38,14 @@ public class Revolution extends JavaPlugin implements Game {
 		this.state = state;
 	}
 	
+	public SamaGamesAPI getSama() {
+		return sama;
+	}
+
+	public void setSama(SamaGamesAPI sama) {
+		this.sama = sama;
+	}
+
 	public boolean isState(GameState state) {
 		return this.state == state;
 	}
